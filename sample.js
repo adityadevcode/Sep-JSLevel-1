@@ -184,26 +184,165 @@ Step 2 done
 // })
 
 
-let btn=document.getElementById("special")
-let dataele=document.getElementById("data")
+// let btn=document.getElementById("special")
+// let dataele=document.getElementById("data")
 
-btn.onClick = function(){
-let p= new Promise(function (resolve,reject) {
-    let xhr = new XMLHttpRequest()
-    xhr.open("GET", "est.txt", true)
-    xhr.send()
-    xhr.onload= function(){
-        if(xhr.status ==200){
-            resolve(xhr.responseText)
-        }
-        else
-        reject ("no data found")
-        }
-    })
-    p.then (function(data) {
-        console.log(data)
-    })
-    p.catch(function(errordata){
-        console.log(errordata)
-    })
+// btn.onClick = function(){
+// let p= new Promise(function (resolve,reject) {
+//     let xhr = new XMLHttpRequest()
+//     xhr.open("GET", "est.txt", true)
+//     xhr.send()
+//     xhr.onload= function(){
+//         if(xhr.status ==200){
+//             resolve(xhr.responseText)
+//         }
+//         else
+//         reject ("no data found")
+//         }
+//     })
+//     p.then (function(data) {
+//         console.log(data)
+//     })
+//     p.catch(function(errordata){
+//         console.log(errordata)
+//     })
+// }
+
+// Difference between Ajax, Promise, fetch and asyn/await
+// Ajax: Reading/writing data from server it doesnot show success/pending/rejectd
+// PROMISE:we can make ajax calls, we can use success/pending/rejected much more better than Ajax
+// Async/await: async returns 2 options/await return the result
+/////////////////////////////////////////////
+
+// Fetch Api:
+// we are sending request to api(Server)
+// -fetch api dwara manam remote server ki ajax calls pampachu
+// -fetch api ante: browser lo fetch ani method vundi, ha method use chesi manam http request pampachu
+// -fetch method is a browser window object which helps to make ajax calls
+// -manam oka http request server ki pampi/ server dagara nundi data ni tisukoni vachi motham webpage load cheyakunda (e portion update cheyalo adi modify chestham)
+// -optinal parameters like methods,headers server ki data manamu post cheyali ante we use optional parameters
+// -optinal parameters lo method specify cheyali(Put, post,delete)
+// -headers aneduku ante e format lo data pamputham ani (Text.json)
+// -URL ki http request pamputham
+// -server dagara nundi vachina response, ha response (Data) promise ane obj kinda return chesthundi
+// -fetch () method returns a promise
+// -data ni access cheyali ante (Then /catch)
+// -promise success ayithe then / error ayithe catch
+// -we have to use then() method of promise return by fetch() method
+// let promise= fetch(“https://rest)
+// promise.then(function(response) {
+// console.log(response)
+// })
+
+// vachina data ni json object laga convert cheyali
+// resolve ayithe then kakapothe catch
+
+// let p = fetch("https://restCountries.com/v3.1/name/india")
+// p.then(function(response){
+//     response.json().then(function(countryinfo){
+//         console.log(countryinfo)
+//     })
+// })
+// p.catch(function(error){
+//     console.log(error)
+//     console.log("console error")
+// })
+//post example
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//     method :'POST',
+//     body:JSON.stringify({
+//         title:'xyz',
+//         body:'test',
+//         userId:1,
+//     }),
+//     headers: {
+//         'Content-type':'application/json; charset=UTF-8',
+//     },
+// })
+// .then((response) => response.json())
+// .then((json) =>console.log(json));
+
+// // fetching response example
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+// .then((response)=>response.json())
+// .then((json)=>console.log(json));
+
+//fetch anedi async ga jaruguthundi
+//server nundi data techukunetani and server ki data pampe daniki time paduthundi
+
+////////////////
+// async/await
+//   async function test() {
+//     x=5+8;
+//     return x
+// }
+// let res1= test()
+// console.log(res1);
+
+// -async ane keyword e function mundu add chesthamo ha function return chesedi 
+// manaki oka promise Object
+// -async keyword use chedam dwara fucntion return chesedi obj avuthundi
+// -await ane keyword ekada kanipisthundo akkada nundi ha function 
+// execution stop chesi
+
+async function test() {
+    x= await 5+7;
+    console.log("Inside the function")
+    return x
 }
+
+let res = test()
+console.log("outside the function")
+res.then(function(data){
+    console.log(data)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
