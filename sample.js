@@ -285,17 +285,89 @@ Step 2 done
 // -await ane keyword ekada kanipisthundo akkada nundi ha function 
 // execution stop chesi
 
-async function test() {
-    x= await 5+7;
-    console.log("Inside the function")
-    return x
+// async function test() {
+//     x= await 5+7;
+//     console.log("Inside the function")
+//     return x
+// }
+
+// let res = test()
+// console.log("outside the function")
+// res.then(function(data){
+//     console.log(data)
+// })
+
+//AJAX,Promises, FetchApis, Async/AWAIT
+
+
+
+//////////////////////////////////////////////
+// This keyword
+// -value of this keyword outside a function
+// -value of this keyword inside a regular function
+// -value of this keyword inside a method
+// -value of this keyword inside event handler
+// -value of this keyword inside a function in strict mode
+
+//console.log(this);
+//Window object
+
+// var a= 10;
+// console.log(this) //window
+// function add() {
+
+// }
+// console.log(window.a)//10
+// console.log(a)//10
+// console.log(this.a);//10
+
+//This Inside regular function
+// function add(x,y){
+//    return x+y
+// }
+// add(2,3); //no output
+// console.log(add(2,3));//5
+// console.log(this);//window
+// window
+//10
+
+//This inside object and method
+let movie = {
+    name:"movie",
+    place:"xyz",
+    year:2010,
+    getName: function () {
+        console.log(this)
+    }
 }
 
-let res = test()
-console.log("outside the function")
-res.then(function(data){
-    console.log(data)
-})
+// console.log(movie);
+// console.log(this);
+movie.getName();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
